@@ -7,6 +7,20 @@ const VARS = {
 		BG_COLOR: "black",
 		WIDTH: 420,
 		HEIGHT: 210,
+		fn: {
+			changeBG: () => {
+				if (isLooping()) {
+					VARS.CANVAS.BG_COLOR = color(
+						random(255),
+						random(255),
+						random(255)
+					);
+					noLoop();
+					return;
+				}
+				loop();
+			},
+		},
 	},
 	TILE: {
 		WIDTH: 100,

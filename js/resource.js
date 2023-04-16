@@ -1,4 +1,14 @@
 const RESOURCE = {
+	BUTTON: {
+		RANDOM_BG: null,
+		fn: {
+			create: (label, { x, y }, clickFn) => {
+				RESOURCE.BUTTON.RANDOM_BG = createButton(label);
+				RESOURCE.BUTTON.RANDOM_BG.position(x, y);
+				RESOURCE.BUTTON.RANDOM_BG.mousePressed(clickFn);
+			},
+		},
+	},
 	IMAGE: { TILE: new Array(35) },
 	fn: {
 		loadTileImages: () => {
