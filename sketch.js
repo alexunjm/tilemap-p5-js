@@ -20,7 +20,9 @@ function draw() {
 	});
 	background(VARS.CANVAS.BG_COLOR);
 
-	RESOURCE.fn.drawTile(RESOURCE.IMAGE.TILE[0], 0, 0);
-	RESOURCE.fn.drawTile(RESOURCE.IMAGE.TILE[0], 1, 0);
-	RESOURCE.fn.drawTile(RESOURCE.IMAGE.TILE[0], 2, 0);
+	for (let j = 0; j < 3; j++) {
+		for (let i = 0; i < 3; i++) {
+			RESOURCE.fn.drawTile(RESOURCE.IMAGE.TILE[0], i, j);
+		}
+	}
 }

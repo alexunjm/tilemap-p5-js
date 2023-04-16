@@ -11,7 +11,6 @@ const RESOURCE = {
 			});
 		},
 		drawTile: (img, xTileDim, yTileDim) => {
-			debugger;
 			const canvasDim = {
 				x:
 					VARS.TILE.fn.calculateX0(yTileDim) +

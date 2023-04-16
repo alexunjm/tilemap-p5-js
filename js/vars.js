@@ -33,7 +33,6 @@ const VARS = {
 			VARS.CANVAS.HEIGHT = dimCanvas.height;
 
 			VARS.TILE.X_ZERO = VARS.CANVAS.WIDTH / 2 - VARS.TILE.WIDTH / 2;
-			// VARS.TILE.Y_ZERO = 50;
 		},
 	},
 };
