@@ -24,7 +24,8 @@ const VARS = {
 			VARS.CANVAS.WIDTH = dimCanvas.width;
 			VARS.CANVAS.HEIGHT = dimCanvas.height;
 
-			VARS.TILE.X_ZERO = VARS.CANVAS.WIDTH / 2 - VARS.TILE.WIDTH / 2;
+			VARS.TILE.X_ZERO =
+				Math.round(VARS.CANVAS.WIDTH / 2) - VARS.TILE.WIDTH / 2;
 		},
 	},
 };

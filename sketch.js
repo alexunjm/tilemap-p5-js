@@ -14,7 +14,7 @@ function draw() {
 
 function windowResized() {
 	const noRedraw = true;
-	resizeCanvas(windowWidth, windowHeight, noRedraw);
+	resizeCanvas(VARS.BROWSER.WIDTH, VARS.BROWSER.HEIGHT, noRedraw);
 
 	updateVars();
 }
