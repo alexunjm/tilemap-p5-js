@@ -36,3 +36,16 @@ const VARS = {
 		},
 	},
 };
+
+function updateVars() {
+	VARS.fn.updateDimensions({
+		dimBrowser: {
+			width: windowWidth,
+			height: windowHeight,
+		},
+		dimCanvas: {
+			width: width,
+			height: height,
+		},
+	});
+}
