@@ -1,47 +1,45 @@
 const RESOURCE = {
-	IMAGE: { TILE: [] },
+	IMAGE: { TILE: new Array(35) },
 	fn: {
 		loadTileImages: () => {
-			[
-				"./image/tile/grass.png",
-				"./image/tile/sand.png",
-				"./image/tile/water.png",
-			].forEach((path) => {
-				RESOURCE.IMAGE.TILE.push(loadImage(path));
-			});
+			for (let index = 0; index < RESOURCE.IMAGE.TILE.length; index++) {
+				RESOURCE.IMAGE.TILE[index] = loadImage(
+					`./image/tile/tile-${index}.png`
+				);
+			}
 		},
 		drawTile: (img, xTileDim, yTileDim) => {
 			const canvasDim = {
 				x:
-					VARS.TILE.fn.calculateX0(yTileDim) +
-					xTileDim * VARS.TILE.HALF_WIDTH,
+					VARS.TILE.X_ZERO +
+					(xTileDim - yTileDim) * VARS.TILE.HALF_WIDTH,
 				y:
-					VARS.TILE.fn.calculateY0(xTileDim) +
-					yTileDim * VARS.TILE.HALF_HEIGHT,
+					VARS.TILE.Y_ZERO +
+					(xTileDim + yTileDim) * VARS.TILE.HALF_HEIGHT,
 			};
 			image(img, canvasDim.x, canvasDim.y);
 		},
-		drawGrid: () => {
+		drawTileGrid: () => {
 			const tileGrid = [
-				[2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-				[2, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-				[2, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-				[2, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-				[2, 0, 0, 1, 0, 0, 0, 0, 0, 2],
-				[2, 0, 0, 1, 0, 0, 0, 0, 0, 2],
-				[2, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-				[2, 0, 0, 0, 0, 0, 0, 1, 0, 2],
-				[2, 0, 0, 0, 0, 0, 0, 0, 0, 2],
-				[2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+				[14, 23, 23, 23, 23, 23, 23, 23, 23, 13],
+				[21, 32, 33, 33, 28, 33, 28, 33, 31, 20],
+				[21, 34, 0, 0, 25, 33, 30, 1, 34, 20],
+				[21, 34, 0, 0, 34, 1, 1, 10, 34, 20],
+				[21, 25, 33, 33, 24, 33, 33, 33, 27, 20],
+				[21, 34, 4, 7, 34, 18, 17, 10, 34, 20],
+				[21, 34, 4, 7, 34, 16, 19, 10, 34, 20],
+				[21, 34, 6, 8, 34, 10, 10, 10, 34, 20],
+				[21, 29, 33, 33, 26, 33, 33, 33, 30, 20],
+				[11, 22, 22, 22, 22, 22, 22, 22, 22, 12],
 			];
 			const gridSize = tileGrid.length;
 
-			for (let j = 0; j < gridSize; j++) {
-				for (let i = 0; i < gridSize; i++) {
+			for (let row = 0; row < gridSize; row++) {
+				for (let col = 0; col < gridSize; col++) {
 					RESOURCE.fn.drawTile(
-						RESOURCE.IMAGE.TILE[tileGrid[i][j]],
-						i,
-						j
+						RESOURCE.IMAGE.TILE[tileGrid[col][row]],
+						row,
+						col
 					);
 				}
 			}

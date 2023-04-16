@@ -13,16 +13,8 @@ const VARS = {
 		HEIGHT: 50,
 		HALF_WIDTH: 50,
 		HALF_HEIGHT: 25,
-		X_ZERO: 50,
+		X_ZERO: 0,
 		Y_ZERO: 50,
-		fn: {
-			calculateX0: (yTileDim) => {
-				return VARS.TILE.X_ZERO - yTileDim * VARS.TILE.HALF_WIDTH;
-			},
-			calculateY0: (xTileDim) => {
-				return VARS.TILE.Y_ZERO + xTileDim * VARS.TILE.HALF_HEIGHT;
-			},
-		},
 	},
 	fn: {
 		updateDimensions: ({ dimBrowser, dimCanvas }) => {

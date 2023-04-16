@@ -9,7 +9,7 @@ function setup() {
 function draw() {
 	background(VARS.CANVAS.BG_COLOR);
 
-	RESOURCE.fn.drawGrid();
+	RESOURCE.fn.drawTileGrid();
 }
 
 function windowResized() {
