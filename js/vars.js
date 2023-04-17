@@ -1,8 +1,4 @@
 const VARS = {
-	BROWSER: {
-		WIDTH: 420,
-		HEIGHT: 210,
-	},
 	CANVAS: {
 		BG_COLOR: "black",
 		WIDTH: 420,
@@ -17,10 +13,7 @@ const VARS = {
 		Y_ZERO: 50,
 	},
 	fn: {
-		updateDimensions: ({ dimBrowser, dimCanvas }) => {
-			VARS.BROWSER.WIDTH = dimBrowser.width;
-			VARS.BROWSER.HEIGHT = dimBrowser.height;
-
+		updateDimensions: ({ dimCanvas }) => {
 			VARS.CANVAS.WIDTH = dimCanvas.width;
 			VARS.CANVAS.HEIGHT = dimCanvas.height;
 
@@ -30,15 +23,11 @@ const VARS = {
 	},
 };
 
-function updateVars() {
+function updateVars(p) {
 	VARS.fn.updateDimensions({
-		dimBrowser: {
-			width: windowWidth,
-			height: windowHeight,
-		},
 		dimCanvas: {
-			width: width,
-			height: height,
+			width: p.width,
+			height: p.height,
 		},
 	});
 }

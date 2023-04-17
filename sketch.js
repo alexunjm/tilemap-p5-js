@@ -1,20 +1,21 @@
-function setup() {
-	VARS.BROWSER.WIDTH = windowWidth;
-	VARS.BROWSER.HEIGHT = windowHeight;
-	createCanvas(VARS.BROWSER.WIDTH, VARS.BROWSER.HEIGHT);
-	windowResized();
-	RESOURCE.fn.loadTileImages();
-}
+const s = (p) => {
+	p.setup = function () {
+		p.createCanvas(p.windowWidth, p.windowHeight);
+		p.windowResized();
+		RESOURCE.fn.loadTileImages(p);
+	};
 
-function draw() {
-	background(VARS.CANVAS.BG_COLOR);
+	p.draw = function () {
+		p.background(VARS.CANVAS.BG_COLOR);
 
-	RESOURCE.fn.drawTileGrid();
-}
+		RESOURCE.fn.drawTileGrid(p);
+	};
 
-function windowResized() {
-	const noRedraw = true;
-	resizeCanvas(VARS.BROWSER.WIDTH, VARS.BROWSER.HEIGHT, noRedraw);
+	p.windowResized = function () {
+		const noRedraw = true;
+		p.resizeCanvas(p.windowWidth, p.windowHeight, noRedraw);
 
-	updateVars();
-}
+		updateVars(p);
+	};
+};
+new p5(s);

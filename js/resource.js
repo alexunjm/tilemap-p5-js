@@ -1,14 +1,14 @@
 const RESOURCE = {
 	IMAGE: { TILE: new Array(35) },
 	fn: {
-		loadTileImages: () => {
+		loadTileImages: (p) => {
 			for (let index = 0; index < RESOURCE.IMAGE.TILE.length; index++) {
-				RESOURCE.IMAGE.TILE[index] = loadImage(
+				RESOURCE.IMAGE.TILE[index] = p.loadImage(
 					`./image/tile/tile-${index}.png`
 				);
 			}
 		},
-		drawTile: (img, xTileDim, yTileDim) => {
+		drawTile: (p, img, xTileDim, yTileDim) => {
 			const canvasDim = {
 				x:
 					VARS.TILE.X_ZERO +
@@ -17,9 +17,9 @@ const RESOURCE = {
 					VARS.TILE.Y_ZERO +
 					(xTileDim + yTileDim) * VARS.TILE.HALF_HEIGHT,
 			};
-			image(img, canvasDim.x, canvasDim.y);
+			p.image(img, canvasDim.x, canvasDim.y);
 		},
-		drawTileGrid: () => {
+		drawTileGrid: (p) => {
 			const tileGrid = [
 				[14, 23, 23, 23, 23, 23, 23, 23, 23, 13],
 				[21, 32, 33, 33, 28, 33, 28, 33, 31, 20],
@@ -37,6 +37,7 @@ const RESOURCE = {
 			for (let row = 0; row < gridSize; row++) {
 				for (let col = 0; col < gridSize; col++) {
 					RESOURCE.fn.drawTile(
+						p,
 						RESOURCE.IMAGE.TILE[tileGrid[col][row]],
 						row,
 						col
